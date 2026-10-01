@@ -39,6 +39,7 @@ export function CourseContentPage() {
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [lessonFormData, setLessonFormData] = useState({
     title: '',
+    description: '',
     duration: '15:00',
     duration_seconds: 900,
     video_url: '',
@@ -56,8 +57,8 @@ export function CourseContentPage() {
 
   const toast = useToast();
 
-  const loadCurriculum = useCallback(async () => {
-    setLoading(true);
+  const loadCurriculum = useCallback(async (silent = false) => {
+    if (!silent) setLoading(true);
     try {
       const [courseRes, curriculumRes] = await Promise.all([
         coursesApi.getCourse(courseId),
@@ -68,7 +69,7 @@ export function CourseContentPage() {
     } catch (err) {
       toast.error('Failed to load curriculum', err.message);
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }, [courseId, toast]);
 
@@ -141,6 +142,7 @@ export function CourseContentPage() {
     setSelectedLesson(null);
     setLessonFormData({
       title: '',
+      description: '',
       duration: '15:00',
       duration_seconds: 900,
       video_url: '',
@@ -151,13 +153,17 @@ export function CourseContentPage() {
 
   const handleOpenEditLesson = (moduleId, lesson) => {
     setTargetModuleId(moduleId);
-    setSelectedLesson(lesson);
+    // Find freshest version of lesson from modules state
+    const currentModule = modules.find((m) => m.id === moduleId);
+    const freshLesson = currentModule?.lessons?.find((l) => l.id === lesson.id) || lesson;
+    setSelectedLesson(freshLesson);
     setLessonFormData({
-      title: lesson.title,
-      duration: lesson.duration || '15:00',
-      duration_seconds: lesson.duration_seconds || 900,
-      video_url: lesson.video_url || '',
-      is_preview: Boolean(lesson.is_preview),
+      title: freshLesson.title || '',
+      description: freshLesson.description || '',
+      duration: freshLesson.duration || '15:00',
+      duration_seconds: freshLesson.duration_seconds || 900,
+      video_url: freshLesson.video_url || '',
+      is_preview: Boolean(freshLesson.is_preview),
     });
     setLessonModalOpen(true);
   };
@@ -172,14 +178,33 @@ export function CourseContentPage() {
     setLessonSaveLoading(true);
     try {
       if (selectedLesson) {
-        await coursesApi.updateLesson(selectedLesson.id, lessonFormData);
+        const updatedLesson = await coursesApi.updateLesson(selectedLesson.id, lessonFormData);
         toast.success('Lesson Updated', `Updated "${lessonFormData.title}"`);
+        // Immediately sync local modules state with returned updated lesson
+        setModules((prevModules) =>
+          prevModules.map((mod) => ({
+            ...mod,
+            lessons: mod.lessons
+              ? mod.lessons.map((les) => (les.id === selectedLesson.id ? { ...les, ...updatedLesson } : les))
+              : [],
+          }))
+        );
       } else {
-        await coursesApi.createLesson(targetModuleId, lessonFormData);
+        const newLesson = await coursesApi.createLesson(targetModuleId, lessonFormData);
         toast.success('Lesson Created', `Added "${lessonFormData.title}"`);
+        setModules((prevModules) =>
+          prevModules.map((mod) =>
+            mod.id === targetModuleId
+              ? {
+                  ...mod,
+                  lessons: [...(mod.lessons || []), newLesson],
+                }
+              : mod
+          )
+        );
       }
       setLessonModalOpen(false);
-      loadCurriculum();
+      loadCurriculum(true);
     } catch (err) {
       toast.error('Failed to save lesson', err.message);
     } finally {
@@ -502,6 +527,25 @@ export function CourseContentPage() {
               onChange={(e) => setLessonFormData({ ...lessonFormData, title: e.target.value })}
               required
               autoFocus
+            />
+          </div>
+
+          <div className="form-group" style={{ margin: 0 }}>
+            <label className="form-label">Lesson Description</label>
+            <textarea
+              className="input"
+              rows={4}
+              style={{
+                minHeight: '110px',
+                maxHeight: '220px',
+                resize: 'vertical',
+                fontFamily: 'inherit',
+                lineHeight: '1.5',
+                padding: '10px 12px',
+              }}
+              placeholder="Briefly describe what students will learn in this lesson..."
+              value={lessonFormData.description}
+              onChange={(e) => setLessonFormData({ ...lessonFormData, description: e.target.value })}
             />
           </div>
 
