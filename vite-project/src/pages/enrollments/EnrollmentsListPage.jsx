@@ -174,7 +174,7 @@ export function EnrollmentsListPage() {
                     </div>
                   </td>
                   <td>
-                    <div style={{ fontSize: '0.825rem', fontWeight: 600, color: enr.payment_amount ? '#10B981' : 'var(--text-muted)' }}>
+                    <div style={{ fontSize: '0.825rem', fontWeight: 600, color: enr.payment_amount ? '#22C55E' : 'var(--text-muted)' }}>
                       {enr.payment_amount ? formatCurrency(enr.payment_amount) : 'Free'}
                     </div>
                     {enr.payment_status && (

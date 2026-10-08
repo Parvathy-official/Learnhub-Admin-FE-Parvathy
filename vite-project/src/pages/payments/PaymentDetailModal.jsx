@@ -42,7 +42,7 @@ export function PaymentDetailModal({ isOpen, onClose, payment = null }) {
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
               TRANSACTION AMOUNT
             </div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: payment.status === 'paid' ? '#10B981' : 'var(--text-heading)', marginTop: '2px' }}>
+            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: payment.status === 'paid' ? '#22C55E' : 'var(--text-heading)', marginTop: '2px' }}>
               {formatCurrency(payment.amount)}
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>

@@ -32,13 +32,13 @@ export function ToastProvider({ children }) {
   const getIcon = (type) => {
     switch (type) {
       case 'success':
-        return <CheckCircle2 size={18} color="#10B981" className="toast-icon" />;
+        return <CheckCircle2 size={18} color="#22C55E" className="toast-icon" />;
       case 'error':
         return <AlertCircle size={18} color="#EF4444" className="toast-icon" />;
       case 'warning':
         return <AlertTriangle size={18} color="#F59E0B" className="toast-icon" />;
       default:
-        return <Info size={18} color="#06B6D4" className="toast-icon" />;
+        return <Info size={18} color="#F59E0B" className="toast-icon" />;
     }
   };
 

@@ -372,7 +372,7 @@ export function CoursesListPage() {
                         onClick={() => handleToggleFeatured(course)}
                         title="Toggle Featured"
                       >
-                        <Star size={12} fill={course.is_featured ? '#030708' : 'none'} />
+                        <Star size={12} fill={course.is_featured ? '#0B0B0B' : 'none'} />
                         {course.is_featured && ' Featured'}
                       </button>
                       <button

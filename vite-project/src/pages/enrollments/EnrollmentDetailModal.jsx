@@ -134,7 +134,7 @@ export function EnrollmentDetailModal({ isOpen, onClose, enrollment = null, onUp
 
           <div>
             <div style={{ fontSize: '0.725rem', color: 'var(--text-muted)' }}>AMOUNT PAID</div>
-            <div style={{ fontSize: '0.875rem', color: '#10B981', fontWeight: 600, marginTop: '2px' }}>
+            <div style={{ fontSize: '0.875rem', color: '#22C55E', fontWeight: 600, marginTop: '2px' }}>
               {enrollment.payment_amount ? formatCurrency(enrollment.payment_amount) : 'Free Access'}
             </div>
           </div>

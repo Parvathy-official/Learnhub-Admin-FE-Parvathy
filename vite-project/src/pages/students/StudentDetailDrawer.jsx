@@ -106,7 +106,7 @@ export function StudentDetailDrawer({ isOpen, onClose, studentId }) {
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                 Total Spent
               </div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#10B981', marginTop: '4px' }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#22C55E', marginTop: '4px' }}>
                 {formatCurrency(student.total_spent)}
               </div>
             </div>
@@ -214,7 +214,7 @@ export function StudentDetailDrawer({ isOpen, onClose, studentId }) {
                       </div>
                     </div>
                     <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontWeight: 600, color: pmt.status === 'paid' ? '#10B981' : 'var(--text-primary)', fontSize: '0.85rem' }}>
+                      <div style={{ fontWeight: 600, color: pmt.status === 'paid' ? '#22C55E' : 'var(--text-primary)', fontSize: '0.85rem' }}>
                         {formatCurrency(pmt.amount)}
                       </div>
                       <Badge variant={pmt.status}>{pmt.status}</Badge>

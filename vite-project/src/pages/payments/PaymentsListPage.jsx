@@ -135,7 +135,7 @@ export function PaymentsListPage() {
                       style={{
                         fontWeight: 700,
                         fontSize: '0.9rem',
-                        color: pmt.status === 'paid' ? '#10B981' : 'var(--text-heading)',
+                        color: pmt.status === 'paid' ? '#22C55E' : 'var(--text-heading)',
                       }}
                     >
                       {formatCurrency(pmt.amount)}

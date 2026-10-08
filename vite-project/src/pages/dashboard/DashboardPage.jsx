@@ -85,42 +85,42 @@ export function DashboardPage() {
             value={stats.total_students ?? 0}
             subtitle="Registered platform learners"
             icon={Users}
-            color="#06B6D4"
+            color="#F59E0B"
           />
           <StatCard
             title="Total Courses"
             value={stats.total_courses ?? 0}
             subtitle={`${stats.published_courses ?? 0} Published Courses`}
             icon={BookOpen}
-            color="#8B5CF6"
+            color="#D97706"
           />
           <StatCard
             title="Total Enrollments"
             value={stats.total_enrollments ?? 0}
             subtitle={`${stats.active_enrollments ?? 0} Active Learners`}
             icon={BookmarkCheck}
-            color="#14B8A6"
+            color="#F59E0B"
           />
           <StatCard
             title="Active Enrollments"
             value={stats.active_enrollments ?? 0}
             subtitle="Currently studying modules"
             icon={CheckCircle2}
-            color="#10B981"
+            color="#22C55E"
           />
           <StatCard
             title="Published Courses"
             value={stats.published_courses ?? 0}
             subtitle="Live in academy catalog"
             icon={TrendingUp}
-            color="#3B82F6"
+            color="#B45309"
           />
           <StatCard
             title="Total Revenue"
             value={formatCurrency(stats.total_revenue)}
             subtitle="From verified paid orders"
             icon={CreditCard}
-            color="#F59E0B"
+            color="#22C55E"
           />
         </div>
       )}
@@ -184,7 +184,7 @@ export function DashboardPage() {
                     <td><span style={{ color: 'var(--text-secondary)' }}>{c.category}</span></td>
                     <td>₹{c.price}</td>
                     <td><strong>{c.total_enrollments}</strong></td>
-                    <td style={{ color: '#10B981', fontWeight: 600 }}>{formatCurrency(c.total_revenue)}</td>
+                    <td style={{ color: '#22C55E', fontWeight: 600 }}>{formatCurrency(c.total_revenue)}</td>
                     <td>⭐ {c.rating}</td>
                     <td>
                       <Badge variant={c.is_published ? 'published' : 'draft'}>
@@ -300,7 +300,7 @@ export function DashboardPage() {
                           {p.created_at}
                         </div>
                       </td>
-                      <td style={{ fontWeight: 600, color: p.status === 'paid' ? '#10B981' : 'var(--text-primary)' }}>
+                      <td style={{ fontWeight: 600, color: p.status === 'paid' ? '#22C55E' : 'var(--text-primary)' }}>
                         {formatCurrency(p.amount)}
                       </td>
                       <td>

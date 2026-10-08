@@ -150,7 +150,7 @@ export function StudentsListPage() {
                     </div>
                   </td>
                   <td>
-                    <span style={{ fontWeight: 600, color: student.total_spent > 0 ? '#10B981' : 'var(--text-muted)' }}>
+                    <span style={{ fontWeight: 600, color: student.total_spent > 0 ? '#22C55E' : 'var(--text-muted)' }}>
                       {formatCurrency(student.total_spent)}
                     </span>
                   </td>

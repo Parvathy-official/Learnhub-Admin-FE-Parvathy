@@ -59,7 +59,7 @@ export function LoginPage() {
         overflow: 'hidden',
       }}
     >
-      {/* Background radial cyan glow */}
+      {/* Background radial amber glow */}
       <div
         style={{
           position: 'absolute',
@@ -69,7 +69,7 @@ export function LoginPage() {
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(3, 7, 8, 0) 70%)',
+          background: 'radial-gradient(circle, rgba(245, 158, 11, 0.10) 0%, rgba(11, 11, 11, 0) 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -96,9 +96,9 @@ export function LoginPage() {
               height: '48px',
               borderRadius: 'var(--radius-lg)',
               background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)',
-              color: '#030708',
+              color: '#0B0B0B',
               marginBottom: '16px',
-              boxShadow: '0 0 20px rgba(6, 182, 212, 0.4)',
+              boxShadow: '0 0 20px rgba(245, 158, 11, 0.35)',
             }}
           >
             <Zap size={24} />
