@@ -368,20 +368,39 @@ export function CoursesListPage() {
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                       <button
                         className={`btn-icon btn-sm ${course.is_featured ? 'btn-primary' : 'btn-ghost'}`}
-                        style={{ padding: '3px 6px', fontSize: '0.7rem' }}
+                        style={{
+                          padding: '3px 6px',
+                          fontSize: '0.7rem',
+                          color: course.is_featured ? '#111111' : 'var(--text-muted)',
+                          fontWeight: course.is_featured ? 700 : 500,
+                        }}
                         onClick={() => handleToggleFeatured(course)}
                         title="Toggle Featured"
                       >
-                        <Star size={12} fill={course.is_featured ? '#0B0B0B' : 'none'} />
+                        <Star
+                          size={12}
+                          color={course.is_featured ? '#111111' : 'currentColor'}
+                          fill={course.is_featured ? '#111111' : 'none'}
+                          strokeWidth={course.is_featured ? 1.5 : 2}
+                        />
                         {course.is_featured && ' Featured'}
                       </button>
                       <button
                         className={`btn-icon btn-sm ${course.is_bestseller ? 'btn-secondary' : 'btn-ghost'}`}
-                        style={{ padding: '3px 6px', fontSize: '0.7rem', color: course.is_bestseller ? '#F59E0B' : 'var(--text-muted)' }}
+                        style={{
+                          padding: '3px 6px',
+                          fontSize: '0.7rem',
+                          color: course.is_bestseller ? '#F59E0B' : 'var(--text-muted)',
+                          fontWeight: course.is_bestseller ? 600 : 500,
+                        }}
                         onClick={() => handleToggleBestseller(course)}
                         title="Toggle Bestseller"
                       >
-                        <Flame size={12} fill={course.is_bestseller ? '#F59E0B' : 'none'} />
+                        <Flame
+                          size={12}
+                          color={course.is_bestseller ? '#F59E0B' : 'currentColor'}
+                          fill={course.is_bestseller ? '#F59E0B' : 'none'}
+                        />
                         {course.is_bestseller && ' Bestseller'}
                       </button>
                     </div>
