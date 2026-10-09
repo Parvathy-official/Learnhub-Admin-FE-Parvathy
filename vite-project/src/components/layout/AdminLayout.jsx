@@ -22,7 +22,7 @@ export function AdminLayout() {
       >
         <div style={{ textAlign: 'center' }}>
           <div className="skeleton" style={{ width: '48px', height: '48px', borderRadius: '50%', margin: '0 auto 16px' }} />
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>Loading LearnFlow Admin...</p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>Loading with P Admin...</p>
         </div>
       </div>
     );

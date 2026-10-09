@@ -87,25 +87,24 @@ export function LoginPage() {
         }}
       >
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div
+          <img
+            src="/logo.png"
+            alt="with P"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '48px',
-              height: '48px',
-              borderRadius: 'var(--radius-lg)',
-              background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)',
-              color: '#0B0B0B',
+              width: '84px',
+              height: 'auto',
+              borderRadius: '12px',
               marginBottom: '16px',
-              boxShadow: '0 0 20px rgba(245, 158, 11, 0.35)',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6), 0 0 24px rgba(245, 158, 11, 0.25)',
+              border: '1px solid rgba(245, 158, 11, 0.35)',
+              display: 'inline-block'
             }}
-          >
-            <Zap size={24} />
-          </div>
-          <h1 style={{ fontSize: '1.5rem', marginBottom: '6px' }}>LearnFlow Admin</h1>
+          />
+          <h1 style={{ fontSize: '1.5rem', marginBottom: '6px', fontWeight: 800, letterSpacing: '-0.02em' }}>
+            with P <span style={{ color: 'var(--primary)', fontSize: '0.8rem', verticalAlign: 'middle', background: 'rgba(245,158,11,0.15)', padding: '2px 8px', borderRadius: '4px', border: '1px solid var(--primary-border)' }}>ADMIN</span>
+          </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-            Performance Marketing Academy Management System
+            Learn • Build • Earn — Academy Management System
           </p>
         </div>
 
@@ -140,7 +139,7 @@ export function LoginPage() {
                 id="email"
                 type="email"
                 className="input"
-                placeholder="admin@learnflow.com"
+                placeholder="admin@withp.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"

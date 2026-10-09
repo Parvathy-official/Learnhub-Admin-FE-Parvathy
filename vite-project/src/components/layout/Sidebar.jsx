@@ -36,11 +36,11 @@ export function Sidebar({ mobileOpen, onCloseMobile }) {
       <aside className={`admin-sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <NavLink to="/" className="brand-logo" onClick={onCloseMobile}>
-            <div className="brand-icon">
-              <Zap size={18} />
+            <img src="/logo.png" alt="with P Logo" className="brand-logo-img" />
+            <div className="brand-title-group">
+              <span className="brand-name">with P</span>
+              <span className="brand-badge">ADMIN</span>
             </div>
-            <span>LearnFlow</span>
-            <span className="brand-badge">ADMIN</span>
           </NavLink>
           {mobileOpen && (
             <button className="btn-icon" onClick={onCloseMobile} aria-label="Close sidebar">
